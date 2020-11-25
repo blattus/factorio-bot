@@ -1,0 +1,12 @@
+[Unit]
+Description=factorio-bot service
+After=network.target
+
+[Service]
+user=root
+WorkingDirectory=/home/factorio-bot
+ExecStart=python /root/factorio-bot/bot.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

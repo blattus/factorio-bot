@@ -1,0 +1,19 @@
+---
+# - name: fetch the latest save file
+  # import_playbook: fetch-save.yaml
+
+- name: destroy droplet
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - digital_ocean_droplet:
+        unique_name: yes # "yes" makes it idempotent
+        region: tor1 # slug of the region you would like your server to be created in.
+        image: ubuntu-18-04-x64 # slug of the image you would like the droplet created with.
+        wait: yes
+        name: "factorio-srv" # name of the droplet
+        size_id: s-2vcpu-4gb # slug of the size you would like the droplet created with.
+        monitoring: yes
+        state: absent

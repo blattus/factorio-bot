@@ -1,0 +1,10 @@
+[Unit]
+Description=Factorio server service
+After=network.target
+
+[Service]
+User=root
+ExecStart=/opt/factorio/bin/x64/factorio --start-server latest_save
+
+[Install]
+WantedBy=multi-user.target
